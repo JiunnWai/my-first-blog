@@ -1,20 +1,11 @@
-<html>
-	<head>
-		<title>Jiunn Wai's blog</title>
-	</head>
+{% extends 'blog/base.html' %}
 
-	<body>
+{% block content %}
+	{% for post in posts %}
 		<div>
-			<h1><a href="/">Jiunn Wai's Blog</a></h1>
+			<p>published: {{ post.published_date }}</p>
+			<h1><a href="">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaksbr }}</p>
 		</div>
-
-		{% for post in posts %}
-			<div>
-				<p>published: {{ post.published_date }}</p>
-				<h1><a href="">{{ post.title }}</a></h1>
-				<p>{{ post.text|linebreaksbr }}</p>
-			</div>
-		{% endfor %}
-
-	</body>
-</html>
+	{% endfor %}
+{% endblock %}
